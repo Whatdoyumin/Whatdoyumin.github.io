@@ -1,0 +1,184 @@
+body {
+  background-image: url(background.gif);
+}
+
+#mainTitle {
+  font-size: 32px;
+  text-align: center;
+  padding: 30px;
+  color: #f897e1;
+  text-shadow: 3px 3px 0px #6200ea, -3px -3px 0px #6200ea; /* 진한 갈색 테두리 */
+  justify-content: center;
+}
+
+/* 문제 박스 */
+#box {
+  background: rgb(256, 256, 256, 0.8);
+  width: 700px;
+  border-radius: 15px;
+  padding: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+#problemTitle {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#button1,
+#button2,
+#button3,
+#button4 {
+  cursor: pointer;
+  padding: 15px;
+  background: white;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+#button1:hover,
+#button2:hover,
+#button3:hover,
+#button4:hover {
+  background: rgb(255, 233, 255) !important;
+}
+
+#submit_btn {
+  width: 300px;
+  text-align: center;
+  padding: 10px;
+  background: #6200ea;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 10px;
+}
+
+#submit_btn:hover {
+  background: #3700b3;
+}
+
+/* 문제 번호 박스 */
+#nav {
+  position: absolute;
+  left: 10%;
+  top: 30%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  background: rgb(256, 256, 256, 0.8);
+  padding: 20px;
+  border-radius: 15px;
+}
+
+#nav > div {
+  font-size: 20px;
+  padding: 8px;
+  background: white;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#nav > div:hover {
+  background: rgb(255, 233, 255);
+}
+
+#buttonContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px;
+}
+
+@media screen and (max-width: 1100px) {
+  body {
+    width: auto;
+  }
+  #nav {
+    top: 7%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+  #mainTitle {
+    font-size: 28px;
+    text-align: right;
+  }
+}
+
+/* 모달 배경 */
+.modal-overlay {
+  display: none; /* 기본적으로 숨김 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* 검은색 투명 배경 */
+  justify-content: center;
+  align-items: center;
+}
+
+#modal {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  width: 400px;
+}
+
+#modal button {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  background: #6200ea;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* 결과 및 정답 텍스트 */
+#result {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#answer {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* 버튼 컨테이너 */
+.modalBtnContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* 버튼 스타일 */
+#history_problem,
+#next_problem {
+  background: #6200ea;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#history_problem:hover,
+#next_problem:hover,
+#inal_result_btn:hover {
+  background: #3700b3;
+}
