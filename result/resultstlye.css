@@ -1,0 +1,157 @@
+/* 기본 스타일 유지 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'DungGeunMo';
+}
+
+body {
+  background-image: url(result.gif);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-direction: column;
+  text-align: center;
+}
+
+#poster {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 50px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+  border: 5px solid black;
+}
+
+#result-box {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+  width: 300px;
+}
+
+#title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 10px;
+}
+
+#score {
+  font-size: 22px;
+  font-weight: bold;
+  color: green;
+  margin-top: 5px;
+}
+
+/* 버튼 스타일 수정 및 추가 */
+button {
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  background-color: darkblue;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: block;
+  margin-top: 20px;
+}
+
+button:hover {
+  padding: 18px 45px;
+  background-color: navy;
+}
+
+/* 맞은 문제/틀린 문제 버튼 추가 */
+.button-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+#correctBtn {
+  background-color: #4caf50; /* 초록색 */
+}
+
+#correctBtn:hover {
+  background-color: #45a049;
+}
+
+#incorrectBtn {
+  background-color: #f44336; /* 빨간색 */
+}
+
+#incorrectBtn:hover {
+  background-color: #d32f2f;
+}
+
+#resultContainer {
+  overflow: scroll;
+  width: 80%;
+  max-width: 700px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 문제 박스 스타일 */
+.question-box {
+  border-left: 5px solid rgb(92, 27, 197);
+  background-color: rgb(184, 155, 211);
+  padding: 10px;
+  margin-bottom: 15px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* 정답이 맞았을 때 */
+.question-box.correct {
+  border-left: 5px solid green;
+  background-color: rgba(144, 238, 144, 0.6);
+}
+
+/* 정답이 틀렸을 때 */
+.question-box.incorrect {
+  border-left: 5px solid red;
+  background-color: rgba(255, 182, 193, 0.6);
+}
+
+.question-box h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.question-box p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+/* 정답 색상 강조 */
+.question-box p strong[style*='green'] {
+  color: green;
+}
+
+.question-box p strong[style*='red'] {
+  color: red;
+}
