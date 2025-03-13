@@ -1,13 +1,14 @@
 const score = localStorage.getItem('score') || 0; // 기본값 0 설정
-const userAnswers = JSON.parse(localStorage.getItem('userAnswers')) || Array(10).fill('none');
+const userAnswers =
+  JSON.parse(localStorage.getItem('userAnswers')) || Array(10).fill('none');
 const title = document.getElementById('title');
 const scoreContent = document.getElementById('score');
 const resultContainer = document.getElementById('resultContainer');
 const correctButton = document.getElementById('correctBtn'); // 맞은 문제 버튼
 const incorrectButton = document.getElementById('incorrectBtn'); // 틀린 문제 버튼
 
-title.innerHTML = '퀴즈 결과';
-scoreContent.innerHTML = `총점: <span style="color: green; font-weight: bold;">${score}/10</span>`;
+// title.innerHTML = '퀴즈 결과';
+// scoreContent.innerHTML = `총점: <span style="color: green; font-weight: bold;">${score}/10</span>`;
 
 // 문제 목록
 const problemTitle = [
@@ -53,7 +54,12 @@ const problemWord = [
     '4. dl : 제목 표시',
   ],
   ['1. src', '2. sorce', '3. content', '4. media'],
-  ['1. 1xx(성공)', '2. 2xx(리다이렉션)', '3. 3xx(클라이언트 오류)', '4. 5xx(서버 오류)'],
+  [
+    '1. 1xx(성공)',
+    '2. 2xx(리다이렉션)',
+    '3. 3xx(클라이언트 오류)',
+    '4. 5xx(서버 오류)',
+  ],
 ];
 
 const problemAnswer = [
@@ -79,6 +85,11 @@ for (let i = 0; i < problemTitle.length; i++) {
   let userAnswerIndex = userAnswers[i]; // 사용자의 답변 인덱스 (로컬 스토리지에서 가져온 값)
   let correctAnswerIndex = problemCorrect[i]; // 정답 인덱스
 
+  // 사용자의 답변을 숫자로 변환 (문자열일 가능성 있음)
+  userAnswerIndex =
+    userAnswerIndex === 'none' ? -1 : parseInt(userAnswerIndex, 10);
+  correctAnswerIndex = parseInt(correctAnswerIndex, 10);
+
   if (userAnswerIndex === 'none' || isNaN(userAnswerIndex)) {
     userAnswerIndex = -1; // 응답 안 한 경우
   }
@@ -89,6 +100,8 @@ for (let i = 0; i < problemTitle.length; i++) {
     incorrectQuestions.push(i); // 틀린 문제 번호 저장
   }
 }
+title.innerHTML = '퀴즈 결과';
+scoreContent.innerHTML = `총점: <span style="color: green; font-weight: bold;">${correctQuestions.length}/10</span>`;
 
 // 문제 출력 함수
 function renderProblems(questionList) {
@@ -113,7 +126,10 @@ function renderProblems(questionList) {
 
     const questionDiv = document.createElement('div');
 
-    questionDiv.classList.add('question-box', isCorrect ? 'correct' : 'incorrect');
+    questionDiv.classList.add(
+      'question-box',
+      isCorrect ? 'correct' : 'incorrect'
+    );
 
     // 사용자가 응답하지 않은 경우 '선택 안함'으로 표시
     const userAnswer =
@@ -136,7 +152,9 @@ function renderProblems(questionList) {
 
 // 버튼 클릭 이벤트 추가
 correctButton.addEventListener('click', () => renderProblems(correctQuestions)); // 맞은 문제 출력
-incorrectButton.addEventListener('click', () => renderProblems(incorrectQuestions)); // 틀린 문제 출력
+incorrectButton.addEventListener('click', () =>
+  renderProblems(incorrectQuestions)
+); // 틀린 문제 출력
 
 // 처음에는 전체 문제 출력 X (필요하면 renderProblems() 호출 가능)
 
