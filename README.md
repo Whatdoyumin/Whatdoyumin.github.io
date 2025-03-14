@@ -21,11 +21,11 @@
 ## 🧑‍🤝‍🧑 팀원 소개
 **이 게임은 4명의 열정적인 개발자들**이 협력하여 만든 프로젝트입니다!
 
-- **김태영**: 프로젝트 매니저 & 백엔드 개발
-- **이유민**: 프론트엔드 개발 & UI/UX 디자인
-- **김성학**: 게임 기획 & 퀴즈 콘텐츠 제작
-- **이유정**: 그래픽 디자인 & 애니메이션
-
+- **김태영**: 프론트엔드 개발
+- **이유민**: 프론트엔드 개발
+- **김성학**: 프론트엔드 개발
+- **이유정**: 프론트엔드 개발
+- 
 ## ⚙️ 기술 스택
 - **프론트엔드**: HTML, CSS, JavaScript
 - **백엔드**: Node.js, Express (선택 사항)
@@ -88,12 +88,3 @@
 
 
 
-
-```css
-@keyframes bounce {
-    0% { transform: translateY(0); }
-    25% { transform: translateY(-10px); }
-    50% { transform: translateY(0); }
-    75% { transform: translateY(-5px); }
-    100% { transform: translateY(0); }
-}
